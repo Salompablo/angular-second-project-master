@@ -1,0 +1,20 @@
+
+
+<h3>Registra nuevos usuarios</h3>
+<div>
+  <label for="name">Nuevo nombre:</label>
+  <input type="text" name="name" id="name" [(ngModel)]="username">
+  <button type="button" (click)="addUser(username)">Añadir</button>
+</div>
+
+<h3>Listado de usuarios</h3>
+<ul>
+  <li *ngFor="let user of userList">
+    <span [ngClass]="{'is-active': user.isActive}">{{ user.name }}</span>
+    <button class="btn" type="button" (click)="toggleActiveUser(user)">
+      <span *ngIf="!user.isActive">Activar</span>
+      <span *ngIf="user.isActive">Desactivar</span>
+    </button>
+    <button>Eliminar</button>
+  </li>
+</ul>
